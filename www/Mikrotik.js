@@ -16,6 +16,7 @@ Mikrotik.prototype.login = function(arg0, arg1, success, error) {
 }
 
 Mikrotik.prototype.command = function(arg0, success, error) {
+    console.log(arg0);
     exec(success, error, "Mikrotik", "login", [arg0]);
 }
 
