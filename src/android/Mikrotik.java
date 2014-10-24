@@ -37,8 +37,8 @@ public class Mikrotik extends CordovaPlugin {
             try {
               this.aConn.disconnect();
             }
-            catch (InterruptedException ex) {
-              callbackContext.error("Can't Disconnect");
+            catch (IOException ex) {
+              callbackContext.error("Can't Disconnect: " + ex.toString());
               return false;
             }
             callbackContext.success("Done");
