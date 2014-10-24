@@ -35,7 +35,8 @@ public class Mikrotik extends CordovaPlugin {
         else if (action.equals("login")) {
             String name = args.getString(0);
             char[] passwod = args.getString(1).toCharArray();
-            this.aConn.login(name, passwod);
+            String res = this.aConn.login(name, passwod);
+            callbackContext.success(res);
         }
         return false;
     }
