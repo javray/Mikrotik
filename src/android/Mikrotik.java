@@ -23,6 +23,7 @@ public class Mikrotik extends CordovaPlugin {
             int ipPort = args.getInt(1);
 
             this.aConn = new ApiConn(ipAddress, ipPort);
+            this.aConn.run();
 
             if (this.aConn.isConnected()) {
               callbackContext.success("Connected");
