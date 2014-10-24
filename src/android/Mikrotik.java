@@ -62,18 +62,23 @@ public class Mikrotik extends CordovaPlugin {
           }
         }
         else if (action.equals("command")) {
+
           if (this.aConn.isConnected()) {
+
             String command = args.getString(0);
             String res = this.aConn.sendCommand(command);
+            String result = "";
+
             if (res.equals("Sent successfully")) {
               res = "";
-              while (true) {
-                try {
-                  res += this.aConn.getData();
+              try {
+                while (result = this.aConn.getData()) {
+                  res += result;
                 }
-                catch(InterruptedException e) {
-                  break;
-                }
+              }
+              catch (InterruptedException e) {
+                callbackContext.error("No Data: " + e.toString());
+                return false;
               }
               callbackContext.success(res);
             }
