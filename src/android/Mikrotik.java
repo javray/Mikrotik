@@ -65,7 +65,18 @@ public class Mikrotik extends CordovaPlugin {
           if (this.aConn.isConnected()) {
             String command = args.getString(0);
             String res = this.aConn.sendCommand(command);
-            callbackContext.success(res);
+            if (res.equals("Sent successfully")) {
+              try {
+                res = this.aConn.getData();
+                callbackContext.success(res);
+              }
+              catch(InterruptedException e) {
+                callbackContext.error("No data: " + e.toString());
+              }
+            }
+            else {
+              callbackContext.error(res);
+            }
           }
           else {
             callbackContext.error("Not Connected");
