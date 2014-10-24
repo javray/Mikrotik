@@ -1,5 +1,5 @@
 var exec = require('cordova/exec');
 
-exports.coolMethod = function(arg0, success, error) {
-    exec(success, error, "Mikrotik", "coolMethod", [arg0]);
+exports.connect = function(arg0, arg1, success, error) {
+    exec(success, error, "Mikrotik", "connect", [arg0, arg1]);
 };
