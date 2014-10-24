@@ -6,6 +6,11 @@
         <clobbers target="cordova.plugins.Mikrotik" />
     </js-module>
     <platform name="android">
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="Mikrotik" >
+            <param name="android-package" value="com.javray.cordova.plugins.Mikrotik"/>
+        </feature>
+      </config-file>
       <lib-file src="src/android/libs/libAPI.jar"/>
       <source-file src="src/android/Mikrotik.java" target-dir="src/com/javray/cordova/plugin/Mikrotik" />
     </platform>
