@@ -7,6 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.*;
+
 import libAPI.*;
 
 public class Mikrotik extends CordovaPlugin {
