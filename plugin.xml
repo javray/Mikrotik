@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.javray.Mikrotik" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Mikrotik</name>
+    <description>Mikrotik API</description>
+    <js-module name="Mikrotik" src="www/Mikrotik.js">
+        <clobbers target="cordova.plugins.Mikrotik" />
+    </js-module>
+    <platform name="android">
+      <lib-file src="src/android/libs/libAPI.jar"/>
+      <source-file src="src/android/Mikrotik.java" target-dir="src/com/javray/cordova/plugin/Mikrotik" />
+    </platform>
+</plugin>
