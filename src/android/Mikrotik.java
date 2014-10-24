@@ -72,7 +72,7 @@ public class Mikrotik extends CordovaPlugin {
             if (res.equals("Sent successfully")) {
               res = "";
               try {
-                while (result = this.aConn.getData()) {
+                while (!(result = this.aConn.getData()).equals("")) {
                   res += result;
                 }
               }
