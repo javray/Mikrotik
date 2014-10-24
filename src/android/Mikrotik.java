@@ -32,12 +32,37 @@ public class Mikrotik extends CordovaPlugin {
               callbackContext.error("Not Connected");
             }
         }
+        else if (action.equals("disconnect")) {
+          if (this.aConn.isConnected()) {
+            this.aConn.disconnect();
+            callbackContext.success("Done");
+          }
+          else {
+            callbackContext.error("Not Connected");
+          }
+        }
         else if (action.equals("login")) {
+          if (this.aConn.isConnected()) {
             String name = args.getString(0);
             char[] passwod = args.getString(1).toCharArray();
             String res = this.aConn.login(name, passwod);
             callbackContext.success(res);
+          }
+          else {
+            callbackContext.error("Not Connected");
+          }
         }
+        else if (action.equals("command")) {
+          if (this.aConn.isConnected()) {
+            String command = args.getString(0);
+            String res = this.aConn.sendCommand(command);
+            callbackContext.success(res);
+          }
+          else {
+            callbackContext.error("Not Connected");
+          }
+        }
+
         return false;
     }
 }
