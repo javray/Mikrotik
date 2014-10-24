@@ -13,6 +13,9 @@ public class Mikrotik extends CordovaPlugin {
 
     private ApiConn aConn = null;
 
+    public Mikrotik() {
+    }
+
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("connect")) {
